@@ -15,7 +15,11 @@ print("V",V)
 K=S[0]/S[1] #grabbing the singular values and calculaing condition number
 print("Condition Number",K)
 
-
+#initializing matrix/vectors
 A_inv=np.array([[1-(10**10),10**10],[1+(10**10),-10**10]])
 delta_b=np.array([10**-5,2*10**-5])
-relative_error=np.linalg.norm(A_inv@delta_b)
+x=np.array([1,1])
+
+
+relative_error=np.linalg.norm(A_inv@delta_b)/np.linalg.norm(x)  #taking the relative error
+print(relative_error)
