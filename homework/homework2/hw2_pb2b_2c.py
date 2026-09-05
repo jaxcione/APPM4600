@@ -20,8 +20,7 @@ def relative_error(perterbation):
 #initializing matrix/vectors
     A_inv=np.array([[1-(10**10),10**10],[1+(10**10),-10**10]])
     x=np.array([1,1])
-    b_vec=[10**perterbation,10**perterbation]
-
+    b_vec=[10**perterbation,2*10**perterbation]
 
     return np.linalg.norm(A_inv@b_vec)/np.linalg.norm(x)  #taking the relative error
     
@@ -32,5 +31,6 @@ f=[relative_error(k) for k in x]
 plt.plot(x,f, color='purple')
 plt.xlabel("Perterbation (k): x^k where k∈[-10,0]")
 plt.ylabel("Relative Error")
+plt.yscale("log")
 plt.title("Relative Error versus pertabation")
 plt.show()
