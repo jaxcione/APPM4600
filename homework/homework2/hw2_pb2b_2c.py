@@ -29,7 +29,7 @@ def relative_error(perterbation):
 #showing the relation of delta_b(or pertebation vector) as a function of relative error 
 x=np.linspace(-10,0,10)
 f=[relative_error(k) for k in x]
-plt.plot(x,f, colors='purple')
+plt.plot(x,f, color='purple')
 plt.xlabel("Perterbation (k): x^k where k∈[-10,0]")
 plt.ylabel("Relative Error")
 plt.title("Relative Error versus pertabation")
