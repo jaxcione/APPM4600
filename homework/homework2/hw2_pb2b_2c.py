@@ -14,3 +14,8 @@ print("V",V)
 
 K=S[0]/S[1] #grabbing the singular values and calculaing condition number
 print("Condition Number",K)
+
+
+A_inv=np.array([[1-(10**10),10**10],[1+(10**10),-10**10]])
+delta_b=np.array([10**-5,2*10**-5])
+relative_error=np.linalg.norm(A_inv@delta_b)
