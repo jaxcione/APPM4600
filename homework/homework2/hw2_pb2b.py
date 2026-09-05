@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 
-A=.5*np.array([[1,1],[1+(10**-10),1-(10**-10)]])
+A=.5*np.array([[1,1],[1+(10**-10),1-(10**-10)]]) #array given in prob
 A_TA=A.T@A
 
 print(A_TA)
