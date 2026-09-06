@@ -45,6 +45,9 @@ for k in range(1,10):
         break
 
 
+#part g-----------------------------------------------
+checking=np.expm1(x) #using the built in function to check our answer
+print(Taylor_series(x)-checking) #we get 0--> T_2(x) is correct up to 16 digits 
 
 
     
