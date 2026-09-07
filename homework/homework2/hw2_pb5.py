@@ -30,6 +30,8 @@ def bisection(a,b,eps):
 
     while abs(d-a)/abs(d)>eps:
         counter+=1
+        fd=f(d)
+        
         if f(d)*f(a)==0:
             return d
 
@@ -41,6 +43,7 @@ def bisection(a,b,eps):
          
         d=.5*(b+a)
         fd=f(d)
+        
 
     return (f"Root:{d}",f"Number of Iterations:{counter}")
 
