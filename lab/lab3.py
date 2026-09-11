@@ -26,18 +26,31 @@ def vec_iterator(vector,sequence,x0):
 #exercise 2.2.1---------------------------------------------------------------------------------------
 
 # we can estimate the order of convergence by doing ln(ek/ek-1)/ln(ek/ek-1)
-m=np.arange(50)
+m=np.arange(100)
 g1=lambda x:np.cos(x) #some random sequence tbh
 P=0.7390851332151607 #our fixed point 
 alpha=[]
 
 
 y=vec_iterator(m,g1,1)
-e=np.abs(y-P)
 
-for j in range(1,len(e)-1):
-    if e[j-1]==0 or e[j]==0 or np.log(e[j]/e[j-1])==0:
-        continue
-    else:
-        alpha.append(np.log(e[j+1]/e[j])/np.log(e[j]/e[j-1])) #appendign it so we can see it converge 
-print(alpha[len(alpha)-1]) #printing the last value of alpha to see if it converges to 1
+
+def obtain_alpha(P,vector):
+    e=np.abs(vector-P)
+    alpha=[]
+    for j in range(1,len(e)-1):
+        if e[j-1]==0 or e[j]==0 or np.log(e[j]/e[j-1])==0:
+            continue
+        else:
+            alpha.append(np.log(e[j+1]/e[j])/np.log(e[j]/e[j-1])) #appendign it so we can see it converge 
+    return alpha
+#Exercise 2.2.2----------------------------------------------
+
+g2= lambda z: (10/(z+4))**1/2
+p0=1.5
+eps=10**-10
+P2=.365230013414097
+
+l=vec_iterator(m,g2,p0)
+alpha2=obtain_alpha(P2,l)
+print(alpha2[len(alpha2)-1]) #converges to 0. Hence our convergence rate for g2 is better than linear 
