@@ -53,4 +53,4 @@ P2=.365230013414097
 
 l=vec_iterator(m,g2,p0)
 alpha2=obtain_alpha(P2,l)
-print(alpha2[len(alpha2)-1]) #converges to 0. Hence our convergence rate for g2 is better than linear 
+print(alpha2[len(alpha2)-1]) #converges to 0! This is for part b  
