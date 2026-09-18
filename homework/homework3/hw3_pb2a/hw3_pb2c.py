@@ -37,5 +37,5 @@ def Netwons(x0,eps=10**-13,z=0):
     else: 
         return x
 
-print("Print Starting at x=.01 :",Netwons(.01,10**-13,0)) #staring at .01
+print("Print Starting at x=.01 :",Netwons(.01,10**-13,0)) #staring at .01x
 print("Print Starting at x=xbar :",Netwons(x_bar,10**-13,0))
