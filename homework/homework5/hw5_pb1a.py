@@ -36,3 +36,5 @@ def iteration(x0,y0,matrix,eps):
 
 
 print(iteration(x0,y0,matrix,1E-10))
+z = (1/((3/np.sqrt(3)) - 1/(3*np.sqrt(3))))**(1/3)
+print(z/np.sqrt(3), z)
