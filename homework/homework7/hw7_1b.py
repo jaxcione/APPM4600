@@ -16,13 +16,14 @@ def C(N):
     x0=[]
     for i in range(1,N+1):
         x0.append(-1+(2*(i-1))/(N-1)) #x0 vector
-    x0=np.array(x0)
+    x0=np.array(x0) #making it an numpy array s.t we can use it to solve the system of eq 
 
     V0=A(x0,N)
-    c0=np.linalg.solve(V0,f(x0))
+    c0=np.linalg.solve(V0,f(x0)) #solving for coeff
 
     return c0
 
+#creating a polynomial function using our c 
 def polynomial(x,c,N):
     p=0
     for i in range(N):
@@ -33,7 +34,7 @@ def Plotting(N, colors):
     for N in N_vec:
 
         c_=C(N)
-        if max(np.abs(polynomial(np.linspace(-1,1,100),c_,N)))<=100:
+        if max(np.abs(polynomial(np.linspace(-1,1,100),c_,N)))<=100: #if max val is less than 100 keep going else, dont 
 
             plt.plot(np.linspace(-1,1,100),polynomial(np.linspace(-1,1,100),c_,N),marker='o',markersize=3,linestyle='solid',color=colors[N%len(colors)],label=f"P(x),N={N}")
             plt.plot(x_f,f(x_f),label='f(x)',color='black',linestyle='dashed')
