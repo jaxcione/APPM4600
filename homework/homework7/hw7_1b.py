@@ -55,5 +55,4 @@ Plotting(N_vec,colors)
 
     
 
-
    
