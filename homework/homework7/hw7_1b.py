@@ -46,7 +46,7 @@ def Plotting(N, colors):
         plt.show()
         
 
-N_vec=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,40,60]
+N_vec=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,40,61]
 x_f=np.linspace(-1,1,1001)
 colors=['blue','orange','green','red','purple','brown','pink','gray','olive','cyan','brown','blueviolet',
         'darkorange','darkgreen','darkred','darkblue','darkcyan','darkmagenta','lightcoral','brown','red']
