@@ -105,10 +105,6 @@ if __name__ == '__main__':
     driver()
 
 
-
-
-
-
 from numpy.linalg import inv
 from numpy.linalg import norm
 
