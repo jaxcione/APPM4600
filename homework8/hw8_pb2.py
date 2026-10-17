@@ -71,16 +71,16 @@ def l_i(x,z,i):
     return num/denom
 
 def l_i_prime(z,i):
-    num,denom=1,1
+    denom=0
     n=len(z)#length of vector
     sum=0
     for s in range(n):
             if i==s:
                 continue
             else:
-                num*=1
+                
                 denom=(z[i]-z[s])
-                sum+=num/denom
+                sum+=1/denom
     return sum
 
 
@@ -117,3 +117,4 @@ for j in range(len(N)):
 
 plt.show()
 
+#############################################################################################################
