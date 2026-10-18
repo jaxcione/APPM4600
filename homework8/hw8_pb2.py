@@ -40,6 +40,7 @@ for j in range(len(N)):
     plt.legend(loc='upper right')
     plt.xlabel('x')
     plt.ylabel('y')
+    plt.ylim(-1,9)
     plt.grid(True)
     
 
@@ -111,10 +112,10 @@ for j in range(len(N)):
     plt.plot(interval2,y_interp,label=f"Hermite interpolation N={N[j]}")
     plt.legend(loc='upper right')
     plt.xlabel('x')
+    plt.ylim(-10,10)
     plt.ylabel('y')
     plt.grid(True)
     
 
 plt.show()
 
-#############################################################################################################
