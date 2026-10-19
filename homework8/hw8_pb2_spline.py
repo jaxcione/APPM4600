@@ -53,7 +53,7 @@ def Sk(x,x_eval,y_eval):
     s=c1*(x_eval[j+1]-x)**3+c2*(x-x_eval[j])**3+c3*(x_eval[j+1]-x)+c4*(x-x_eval[j])
     return s
 
-r=20
+r=5
 x_eval=np.linspace(-5,5,r) 
 y_eval=f(x_eval)
 X=np.linspace(-5,5,1000)
@@ -126,7 +126,7 @@ def Sk(x,x_eval,y_eval):
     s=c1*(x_eval[j+1]-x)**3+c2*(x-x_eval[j])**3+c3*(x_eval[j+1]-x)+c4*(x-x_eval[j])
     return s
 
-r=20
+r=5
 x_eval=np.linspace(-5,5,r) 
 y_eval=f(x_eval)
 X=np.linspace(-5,5,1000)
