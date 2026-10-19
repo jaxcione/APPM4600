@@ -103,7 +103,7 @@ def Mk(x_eval,y_eval):
     B[n,n]=2
     B[n,n-1]=1
     rhs[0]=6*((y_eval[1]-y_eval[0])/(h[0]**2))-(6*f_prime(x_eval[0])/h[0])
-    rhs[n]=6*((y_eval[n]-y_eval[n-1])/(h[n-1]**2))-(6*f_prime(x_eval[n])/h[n-1])
+    rhs[n]=-6*((y_eval[n]-y_eval[n-1])/(h[n-1]**2))+(6*f_prime(x_eval[n])/h[n-1])
     Mk=np.linalg.solve(B,rhs)
 
     return Mk
