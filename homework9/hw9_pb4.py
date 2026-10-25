@@ -81,8 +81,8 @@ def pade(n,m,x):
 
 
 X=np.linspace(0,5,1000)
-n=6
-m=6
+n=10
+m=10
 Y=pade(n,m,X)
 Y2=taylor(X,n+m)
 
