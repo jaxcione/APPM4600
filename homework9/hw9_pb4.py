@@ -42,30 +42,31 @@ def pade_coeff_solve(n,m):
 
     return sol
 
-def taylor(x,r):
+def taylor(x,r): #mclaurin series of sin
     s=0
     for k in range(r):
         s +=(-1)**k/math.factorial(2 * k + 1) * x**(2 * k + 1)
     return s
 
 def pade(n,m,x):
-    coeff_lib=dict(pade_coeff_solve(n,m))
+    coeff_lib=dict(pade_coeff_solve(n,m)) #grabbing all coeff
     a=[]
     b=[]
-    keys=list(coeff_lib.keys())
+    keys=list(coeff_lib.keys()) #listing out all coeff
+    print(keys)
     
 
     for t in range(n):
-        if coeff_lib[keys[t]]==True:
-            a.append(coeff_lib[keys[t]])
-        else:
-            a.append(0)
+        a.append(float(coeff_lib[keys[t]])) #getting values associated with each coeff
+            
 
     for r in range(n,n+m-1):
-        b.append(coeff_lib[keys[r]])
+        b.append(float(coeff_lib[keys[r]])) #getting values associated with each coeff
+    
 
-    a=np.array(a)
-    b=np.array(b)
+    a=np.array(a) #array of all coeff of a
+    b=np.array(b) #array of all coeff of b
+
    
     num=0
     denom=1
@@ -76,17 +77,17 @@ def pade(n,m,x):
     for i in range(m-1):
             denom+=b[i]*(x**(i+1)) #creating the denominator
 
-    return num/denom
+    return num/denom #returning pade approx
 
 
 X=np.linspace(0,5,1000)
-n=8
-m=8
+n=6
+m=6
 Y=pade(n,m,X)
 Y2=taylor(X,n+m)
 
-plt.plot(X,Y,label='Pade Approximation',color='purple')
-# plt.plot(X,taylor(X,n+m),label='McLaurin Series',color='blue')
+plt.plot(X,Y,label=f'Pade Approximation: N={n},M={m}',color='black',linewidth=3)
+plt.plot(X,Y2,label='McLaurin Series',color='red',linestyle='--',linewidth=2.5)
 plt.legend()
 plt.grid()
 plt.show()
