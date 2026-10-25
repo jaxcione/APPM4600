@@ -49,21 +49,24 @@ def taylor(x,r):
     return s
 
 def pade(n,m,x):
-    coeff_lib=pade_coeff_solve(n,m)
+    coeff_lib=dict(pade_coeff_solve(n,m))
     a=[]
     b=[]
-
-    vals=list(coeff_lib.values())
+    keys=list(coeff_lib.keys())
+    
 
     for t in range(n):
-        a.append(vals[t])
+        if coeff_lib[keys[t]]==True:
+            a.append(coeff_lib[keys[t]])
+        else:
+            a.append(0)
 
-    for r in range(n-1,n+m-1):
-        b.append(vals[r])
+    for r in range(n,n+m-1):
+        b.append(coeff_lib[keys[r]])
 
     a=np.array(a)
     b=np.array(b)
-
+   
     num=0
     denom=1
 
@@ -77,8 +80,8 @@ def pade(n,m,x):
 
 
 X=np.linspace(0,5,1000)
-n=4
-m=2
+n=8
+m=8
 Y=pade(n,m,X)
 Y2=taylor(X,n+m)
 
