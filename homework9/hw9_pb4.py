@@ -4,7 +4,7 @@ import math
 from sympy import symbols, Eq, solve, Poly
 
 def symbols_func(n,m):
-    symbols_a=symbols(f'a0:{n}',seq=True)
+    symbols_a=symbols(f'a0:{n}',seq=True) #makes it a sequence
     symbols_b=symbols(f'b1:{m}',seq=True)
     symbols_x=symbols('x')
 
@@ -49,10 +49,10 @@ def taylor(x,r): #mclaurin series of sin
     return s
 
 def pade(n,m,x):
-    coeff_lib=dict(pade_coeff_solve(n,m)) #grabbing all coeff
+    coeff_lib=dict(pade_coeff_solve(n,m)) #making it a dictionary s.t we can grab all the keys
     a=[]
     b=[]
-    keys=list(coeff_lib.keys()) #listing out all coeff
+    keys=list(coeff_lib.keys()) #listing out all coeff in string form
     print(keys)
     
 
