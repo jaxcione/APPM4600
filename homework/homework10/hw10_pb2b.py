@@ -31,8 +31,8 @@ def simpson(a,b,n):
 
     return sum_val
 
-trap_sci=quad.quad(f,-5,5)[0]
-trap_sci2=quad.quad(f,-5,5,epsrel=1E-4)[0]
+trap_sci=quad.quad(f,-5,5,epsabs=1E-6,epsrel=0)[0]
+trap_sci2=quad.quad(f,-5,5,epsabs=1E-4,epsrel=0)[0]
 
 diff_traps=abs(trap_sci-traps(-5,5,1292))
 diff_simpson=abs(trap_sci-simpson(-5,5,108))
@@ -40,8 +40,9 @@ diff_simpson=abs(trap_sci-simpson(-5,5,108))
 diff_traps2=abs(trap_sci2-traps(-5,5,1292))
 diff_simpson2=abs(trap_sci2-simpson(-5,5,108))
 
-print(f'Traps: {diff_traps}')
-print(f'Simpson: {diff_simpson}')
+print(f'|Int-Trap|: {diff_traps}', "Evaluations: 1292")
+print(f'|Int-Simpson|: {diff_simpson}', "Evaluations: 108")
 
-print(f'Traps2: {diff_traps2}')
-print(f'Simpson2: {diff_simpson2}')
+
+print(f'|Int-Trap2|: {diff_traps2}', "Evaluations: 1292")
+print(f'|Int-Simpson2|: {diff_simpson2}', "Evaluations: 108")
