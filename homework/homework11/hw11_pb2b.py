@@ -37,7 +37,7 @@ def driver():
     for j in range(0,nrefine+1):
         print('absolute error in column', j, '= ', abs(I_ex-Rom[j:,j]))
     err = abs(I_ex-np.diag(Rom))
-    print('absolute error of best approximation at each order = ', err)
+    print('absolute error of best approximation at each order Simpson = ', err)
 
     plt.semilogy(ntest,err,'o-',color='purple')
     plt.xlabel('n')
@@ -59,7 +59,7 @@ def driver2():
     for j in range(0,nrefine+1):
         print('absolute error in column', j, '= ', abs(I_ex-Rom[j:,j]))
     err = abs(I_ex-np.diag(Rom))
-    print('absolute error of best approximation at each order = ', err)
+    print('absolute error of best approximation at each order Trapz = ', err)
 
     plt.semilogy(ntest,err,'o-',color='red')
     plt.xlabel('n')
