@@ -30,11 +30,26 @@ N=int(np.ceil((M**3*K/(eps*12))**0.5 +1))
 for x in X:
     approx=traps(0,M,N,lambda t:f_gamma(x, t))
     actual, error,info = quad(lambda s: f_gamma(x, s), 0, M,epsabs=eps,epsrel=0,full_output=1)
+    
     print(f"Quadrature from python value at {x}:",actual,f"Number of function calls:{info['neval']}")
     print(f"Approximation of gamma at {x}:",approx,f"Number of Function Calls: {N+1}")
     # print(f"Exact val of gamma at {x}:",gamma(x))
     # print(f"Error at {x}:",abs(approx-gamma(x)))
     print("-"*50)
+
+N2=[10,50,100]
+
+def f_poly(r,n):
+    x,w=np.polynomial.laguerre.laggauss(n)
+    sum_val=np.dot(x**(r-1),w)
+    return sum_val
+
+for s in X:
+    for n in N2:
+        approx=f_poly(s,n)
+        print(f"Gauss-Laguerre quadrature for {n} nodes at x={s}",approx)
+    print("-"*50)
+        
 
 
 
