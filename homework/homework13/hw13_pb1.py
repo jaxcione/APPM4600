@@ -14,30 +14,28 @@ def matrix(m,alpha):
     return A
 
 
+
 def QR(m,alpha,N):
     A=matrix(m,alpha)
+    A=A+3*np.eye(len(A)) #shifing so b converges
   
     for k in range(N):
         Q,R=np.linalg.qr(A) 
         A=np.matmul(R,Q)
-        
 
-        
-        if  np.linalg.norm(np.tril(A, k=-1))<1E-7: # the lower triangular part of the matriix
+        if  np.linalg.norm(A-np.diag(np.diag(A)))<1E-7: 
             s=np.diag(A)
-            return np.sort(s),k+1
-            
-        
+            return np.sort(s)-3,k+1
+
+
     return None, f"Did not converge in {N} iterations"
 
 
 alpha_vals=[1/4,1/2,3/4]
 
-
-
 for s in alpha_vals:
-    i=np.arange(1, 11)                                  
-    actual_2 = np.sort(1-4*s*np.sin(np.pi*i/(2*11))**2)  
+    i =np.arange(1, 11)                                  
+    actual_2=np.sort(1-4*s*np.sin(np.pi*i/(2*11))**2)  
     print()
     
     actual=np.linalg.eigvalsh(matrix(11,s))
