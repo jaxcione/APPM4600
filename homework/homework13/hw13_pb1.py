@@ -20,6 +20,7 @@ def QR(m,alpha,N):
     for k in range(N):
         Q,R=np.linalg.qr(A) 
         A=np.matmul(R,Q)
+        
 
         
         if  np.linalg.norm(np.tril(A, k=-1))<1E-7: # the lower triangular part of the matriix
@@ -32,15 +33,24 @@ def QR(m,alpha,N):
 
 alpha_vals=[1/4,1/2,3/4]
 
+
+
 for s in alpha_vals:
+    i=np.arange(1, 11)                                  
+    actual_2 = np.sort(1-4*s*np.sin(np.pi*i/(2*11))**2)  
     print()
+    
     actual=np.linalg.eigvalsh(matrix(11,s))
     print(f"QR iteration Eigenvalues,alpha={s}: ")
-    print(QR(11,s,100000)[0])
+    approx=QR(11,s,100000)[0]
+    print(approx)
     print()
     print(f"Actual Eigenvalues,alpha={s}: ")
     print(actual)
     print(f"rho(A) = {np.max(np.abs(actual)):.6f}")
+    print()
+    if approx is not None:
+        print("Difference:",abs(approx-actual_2))
     print("-"*50)
 
 
