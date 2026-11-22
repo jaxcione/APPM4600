@@ -68,16 +68,17 @@ for s in N:
     print()
     E_inv,v,k,A,H_exact=Power_method_inverse(s,1000)
 
-    #computing error term by term since you cannot do math with mpf and np 
+    #computing error term by term since you cannot do subtraction of matrices with mpf and np 
     H_fl=mp.matrix(s,s)
     E=np.empty((s,s))
     for i in range(s):
         for j in range(s):
-            H_fl[i,j]=mp.mpf(float(A[i,j]))
+            H_fl[i,j]=mp.mpf(float(A[i,j])) #converting A into mp form
             E[i,j]=float(H_fl[i,j]-H_exact[i,j])
     normE=np.linalg.norm(E,2)
 
-    ev_true=mp.eigsy(H_exact,eigvals_only=True)
+    #the eigenvalue of the exact and float hilbert matrixc
+    ev_true=mp.eigsy(H_exact,eigvals_only=True) 
     ev_fl=mp.eigsy(H_fl,eigvals_only=True)
 
     lam_true=ev_true[0]
